@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+    {% for team in teams %}
+	        <tr valign="top">
+	            <td>
+	              	<a href="/teamplayers/{{ team.id }}/{{team.name}}">
+	              		<img src="{{ team.logouri }}">
+	              	</a>
+	            </td>
+	            <td>
+	            	<h1>
+	              		<a href="/teamplayers/{{ team.id }}/{{team.name}}">
+	              			{{ team.name }}
+	              		</a>
+	             	</h1>
+	             </td>
+	        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

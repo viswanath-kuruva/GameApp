@@ -1,0 +1,11 @@
+*.pyc
+*.swp
+
+venv
+
+migrations/*.*
+
+migrations/alembic.ini
+migrations/env.*
+migrations/README
+migrations/script.py.mako

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<p><h4>Team Name : {{teamname}}</h4></p>
+    <table>
+    {% for player in players %}
+	        <tr valign="top">
+	            <td><img src="{{ player.imageuri }}"></td>
+	            <td><h1> {{ player.lastname }}, {{ player.firstname }} </h1></td>
+	        </tr>
+    {% endfor %}
+    </table>
+    <p>Go To : <a href="{{ url_for('showTeams')}}">Teams</a></p>
+
+{% endblock %}
