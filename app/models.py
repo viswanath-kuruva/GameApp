@@ -29,7 +29,7 @@ class Team(db.Model, SerializeMixin):
     name = db.Column(db.String(25), unique=True, nullable=False)
     # https://www.gravatar.com/avatar/asasdfasdfasdoie5f35?d=identicon&s=64
     logouri = db.Column(db.String(250), nullable=False)
-    players = db.relationship('Player', backref='teamname', lazy='dynamic')
+    players = db.relationship('Player', backref='teamname', lazy='dynamic', cascade="all, delete-orphan")
 
     def __repr__(self):
         return 'Team : {}'.format(self.name)
@@ -40,6 +40,7 @@ class Player(db.Model, SerializeMixin):
     lastname = db.Column(db.String(25), nullable=False)
     imageuri = db.Column(db.String(250), nullable=False)
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False)
+    # team = db.relationship
 
     def __repr__(self):
         return '<Player : {}>'.format(self.firstname + self.lastname)

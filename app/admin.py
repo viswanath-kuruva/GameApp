@@ -20,4 +20,9 @@ class UserModelView(Controller):
 
 class TeamModelView(Controller):
 	''' excluding players from admin team adding interface '''
-	form_excluded_columns = ('players')		
+	form_excluded_columns = ('players')
+	# can_create = False
+	# can_edit = False
+	# can_delete = False
+	# can_view_details = True # on each record
+	# column_searchable_list = ['name']

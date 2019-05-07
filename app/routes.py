@@ -1,6 +1,7 @@
-from flask import render_template, redirect, url_for, request, jsonify, flash
+from flask import render_template, redirect, url_for, request, jsonify, flash, make_response
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
+from werkzeug.security import check_password_hash
 from flask_restful import Resource
 import requests
 
@@ -8,10 +9,13 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User, Team
 
+
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
     return render_template('index.html', title='Home')
+
 
 @app.route('/displayteams')
 def showTeams():
